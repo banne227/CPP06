@@ -18,8 +18,15 @@
 
 #include <string>
 #include <iostream>
+#include <climits>
+#include <cstdlib>
 
 bool isDisplayable(char c);
-
+void displayChar(const std::string& literal);
+void displayImpossible();
+int getIntValue(const std::string& literal, bool& success);
+bool displayInt(const std::string& literal);
+void displayFloat(const std::string& literal);
+void displayDouble(const std::string& literal);
 
 #endif

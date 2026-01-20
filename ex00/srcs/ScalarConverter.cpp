@@ -105,18 +105,20 @@ void ScalarConverter::convert(const std::string& literal)
 	switch (type)
 	{
 		case CHAR:
-			{
-				
-			}
-			break;			
+			displayChar(literal);
+			break;		
 		case INT:
-
+			displayInt(literal);
+			break;
 		case FLOAT:
-
+			displayFloat(literal);
+			break;
 		case DOUBLE:
-		
+			displayDouble(literal);
+			break;
 		case PSEUDO_LITERAL:
-
+			displayImpossible();
+			break;
 		case INVALID:
 			std::cout << "Invalid literal for conversion." << std::endl;
 			break;

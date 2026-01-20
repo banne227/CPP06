@@ -20,6 +20,7 @@
 #include <stdexcept>
 #include <limits>
 #include <iostream>
+#include "Display.hpp"
 
 class ScalarConverter
 {
