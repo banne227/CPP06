@@ -7,35 +7,33 @@
 //#   ██████╔╝███████╗██║ ╚████║                             #
 //#   ╚═════╝ ╚══════╝╚═╝  ╚═══╝                             #
 //#                                                          #
-//#   File    : convert.hpp                                     #
-//#   Created : 2026-01-20 13:04                             #
-//#   Updated : 2026-01-20 13:04                             #
+//#   File    : Serializer.cpp                                     #
+//#   Created : 2026-01-21 11:35                             #
+//#   Updated : 2026-01-21 11:35                             #
 //#                                                          #
 //############################################################
 
-#ifndef ScalarConverter_HPP
-#define ScalarConverter_HPP
 
-#include <string>
-#include <stdexcept>
-#include <limits>
-#include <iostream>
-#include "Display.hpp"
+#include "../includes/Serializer.hpp"
 
-class ScalarConverter
-{
-	public:
-		static void convert(const std::string& literal);
+Serializer::Serializer() {};
+
+Serializer::~Serializer() {};
+
+Serializer::Serializer(const Serializer& other) { (void)other; };
+
+Serializer& Serializer::operator=(const Serializer& other) 
+{ 
+	(void)other; 
+	return *this; 
 };
 
-typedef enum eType
+uintptr_t Serializer::serialize(Data* ptr)
 {
-	CHAR,
-	INT,
-	FLOAT,
-	DOUBLE,
-	PSEUDO_LITERAL,
-	INVALID
-}	tType;
+	return reinterpret_cast<uintptr_t>(ptr);
+}
 
-#endif
+Data* Serializer::deserialize(uintptr_t raw)
+{
+	return reinterpret_cast<Data*>(raw);
+}

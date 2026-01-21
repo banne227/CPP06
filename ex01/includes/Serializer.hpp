@@ -7,27 +7,42 @@
 //#   ██████╔╝███████╗██║ ╚████║                             #
 //#   ╚═════╝ ╚══════╝╚═╝  ╚═══╝                             #
 //#                                                          #
-//#   File    : Display.hpp                                  #
-//#   Created : 2026-01-20 13:53                             #
-//#   Updated : 2026-01-20 13:53                             #
+//#   File    : Serializer.hpp                               #
+//#   Created : 2026-01-21 11:33                             #
+//#   Updated : 2026-01-21 11:33                             #
 //#                                                          #
 //############################################################
 
-#ifndef DISPLAY_HPP
-#define DISPLAY_HPP
+#ifndef SERIALIZER_HPP
+#define SERIALIZER_HPP
 
 #include <string>
+#include <stdexcept>
+#include <limits>
 #include <iostream>
-#include <climits>
-#include <cstdlib>
+#include <stdint.h>
 
-bool isDisplayable(char c);
-void displayChar(const std::string& literal);
-void displayImpossible();
-int getIntValue(const std::string& literal, bool& success);
-bool displayInt(const std::string& literal);
-void displayFloat(const std::string& literal);
-void displayDouble(const std::string& literal);
-void displayPseudoLiteral(const std::string& literal);
+typedef struct Data
+{
+	int		n;
+	float	f;
+	double	d;
+	char	c;
+	void *ptr;
+
+} Data;
+
+class Serializer
+{
+	public:
+		Serializer();
+		~Serializer();
+		Serializer(const Serializer& other);
+		Serializer& operator=(const Serializer& other);
+
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
+};
+
 
 #endif
