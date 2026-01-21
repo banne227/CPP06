@@ -77,13 +77,8 @@ Identification dynamique du type réel d’un objet à partir d’un pointeur ou
 
 ---
 
-## 🛠️ Compilation & exécution
-
-Chaque exercice peut être compilé individuellement :
-
 ```bash
-c++ -Wall -Wextra -Werror -std=c++98 *.cpp -o program
-./program
+
 
 🚀 Compétences globales acquises (orientation CV)
 
