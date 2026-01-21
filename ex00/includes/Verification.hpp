@@ -7,37 +7,22 @@
 //#   ██████╔╝███████╗██║ ╚████║                             #
 //#   ╚═════╝ ╚══════╝╚═╝  ╚═══╝                             #
 //#                                                          #
-//#   File    : ScalarConverter.cpp                                  #
-//#   Created : 2026-01-20 13:03                             #
-//#   Updated : 2026-01-20 13:03                             #
+//#   File    : Verification.hpp                             #
+//#   Created : 2026-01-21 11:20                             #
+//#   Updated : 2026-01-21 11:20                             #
 //#                                                          #
 //############################################################
 
-#include "../includes/ScalarConverter.hpp"
-#include "../includes/Verification.hpp"
+#ifndef VERIFICATION_HPP
+#define VERIFICATION_HPP
 
-void ScalarConverter::convert(const std::string& literal)
-{
-	int type = getType(literal);
-	switch (type)
-	{
-		case CHAR:
-			displayChar(literal);
-			break;		
-		case INT:
-			displayInt(literal);
-			break;
-		case FLOAT:
-			displayFloat(literal);
-			break;
-		case DOUBLE:
-			displayDouble(literal);
-			break;
-		case PSEUDO_LITERAL:
-			displayPseudoLiteral(literal);
-			break;
-		case INVALID:
-			std::cout << "Invalid literal for conversion." << std::endl;
-			break;
-	}
-}
+#include "ScalarConverter.hpp"
+
+bool	isPseudoLiteral(const std::string& str);
+bool	isInteger(const std::string& str);
+bool	isChar(const std::string& str);
+bool	isFloat(const std::string& str);
+bool	isDouble(const std::string& str);
+int		getType(const std::string& literal);
+
+#endif

@@ -7,37 +7,35 @@
 //#   ██████╔╝███████╗██║ ╚████║                             #
 //#   ╚═════╝ ╚══════╝╚═╝  ╚═══╝                             #
 //#                                                          #
-//#   File    : ScalarConverter.cpp                                  #
-//#   Created : 2026-01-20 13:03                             #
-//#   Updated : 2026-01-20 13:03                             #
+//#   File    : convert.hpp                                     #
+//#   Created : 2026-01-20 13:04                             #
+//#   Updated : 2026-01-20 13:04                             #
 //#                                                          #
 //############################################################
 
-#include "../includes/ScalarConverter.hpp"
-#include "../includes/Verification.hpp"
+#ifndef ScalarConverter_HPP
+#define ScalarConverter_HPP
 
-void ScalarConverter::convert(const std::string& literal)
+#include <string>
+#include <stdexcept>
+#include <limits>
+#include <iostream>
+#include "Display.hpp"
+
+class ScalarConverter
 {
-	int type = getType(literal);
-	switch (type)
-	{
-		case CHAR:
-			displayChar(literal);
-			break;		
-		case INT:
-			displayInt(literal);
-			break;
-		case FLOAT:
-			displayFloat(literal);
-			break;
-		case DOUBLE:
-			displayDouble(literal);
-			break;
-		case PSEUDO_LITERAL:
-			displayPseudoLiteral(literal);
-			break;
-		case INVALID:
-			std::cout << "Invalid literal for conversion." << std::endl;
-			break;
-	}
-}
+	public:
+		static void convert(const std::string& literal);
+};
+
+typedef enum eType
+{
+	CHAR,
+	INT,
+	FLOAT,
+	DOUBLE,
+	PSEUDO_LITERAL,
+	INVALID
+}	tType;
+
+#endif

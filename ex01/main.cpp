@@ -7,37 +7,23 @@
 //#   ██████╔╝███████╗██║ ╚████║                             #
 //#   ╚═════╝ ╚══════╝╚═╝  ╚═══╝                             #
 //#                                                          #
-//#   File    : ScalarConverter.cpp                                  #
-//#   Created : 2026-01-20 13:03                             #
-//#   Updated : 2026-01-20 13:03                             #
+//#   File    : main.cpp                                     #
+//#   Created : 2026-01-20 16:32                             #
+//#   Updated : 2026-01-20 16:32                             #
 //#                                                          #
 //############################################################
 
-#include "../includes/ScalarConverter.hpp"
-#include "../includes/Verification.hpp"
 
-void ScalarConverter::convert(const std::string& literal)
+#include "includes/ScalarConverter.hpp"
+
+int main(int argc, char** argv)
 {
-	int type = getType(literal);
-	switch (type)
+	if (argc != 2)
 	{
-		case CHAR:
-			displayChar(literal);
-			break;		
-		case INT:
-			displayInt(literal);
-			break;
-		case FLOAT:
-			displayFloat(literal);
-			break;
-		case DOUBLE:
-			displayDouble(literal);
-			break;
-		case PSEUDO_LITERAL:
-			displayPseudoLiteral(literal);
-			break;
-		case INVALID:
-			std::cout << "Invalid literal for conversion." << std::endl;
-			break;
+		std::cerr << "Usage: ./scalar_converter <literal>" << std::endl;
+		return 1;
 	}
+	std::string literal = argv[1];
+	ScalarConverter::convert(literal);
+	return 0;
 }

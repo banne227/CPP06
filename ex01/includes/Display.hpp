@@ -7,37 +7,27 @@
 //#   ██████╔╝███████╗██║ ╚████║                             #
 //#   ╚═════╝ ╚══════╝╚═╝  ╚═══╝                             #
 //#                                                          #
-//#   File    : ScalarConverter.cpp                                  #
-//#   Created : 2026-01-20 13:03                             #
-//#   Updated : 2026-01-20 13:03                             #
+//#   File    : Display.hpp                                  #
+//#   Created : 2026-01-20 13:53                             #
+//#   Updated : 2026-01-20 13:53                             #
 //#                                                          #
 //############################################################
 
-#include "../includes/ScalarConverter.hpp"
-#include "../includes/Verification.hpp"
+#ifndef DISPLAY_HPP
+#define DISPLAY_HPP
 
-void ScalarConverter::convert(const std::string& literal)
-{
-	int type = getType(literal);
-	switch (type)
-	{
-		case CHAR:
-			displayChar(literal);
-			break;		
-		case INT:
-			displayInt(literal);
-			break;
-		case FLOAT:
-			displayFloat(literal);
-			break;
-		case DOUBLE:
-			displayDouble(literal);
-			break;
-		case PSEUDO_LITERAL:
-			displayPseudoLiteral(literal);
-			break;
-		case INVALID:
-			std::cout << "Invalid literal for conversion." << std::endl;
-			break;
-	}
-}
+#include <string>
+#include <iostream>
+#include <climits>
+#include <cstdlib>
+
+bool isDisplayable(char c);
+void displayChar(const std::string& literal);
+void displayImpossible();
+int getIntValue(const std::string& literal, bool& success);
+bool displayInt(const std::string& literal);
+void displayFloat(const std::string& literal);
+void displayDouble(const std::string& literal);
+void displayPseudoLiteral(const std::string& literal);
+
+#endif

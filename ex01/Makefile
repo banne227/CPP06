@@ -27,8 +27,7 @@ OBJ_DIR			= obj/
 # Files
 SRCS			= main.cpp \
 				  $(SRCS_DIR)ScalarConverter.cpp \
-				  $(SRCS_DIR)Display.cpp \
-				  $(SRCS_DIR)Verification.cpp
+				  $(SRCS_DIR)Display.cpp
 
 OBJS			= $(SRCS:%.cpp=$(OBJ_DIR)%.o)
 
